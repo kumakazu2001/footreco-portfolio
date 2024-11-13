@@ -7,7 +7,17 @@ import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
 import { SectionTitle } from "@/components/section-title";
 
-const projects = [
+
+interface Project {
+  type: "app" | "web";  // 文字列リテラル型として定義
+  icon: string;
+  title: string;
+  description: string;
+  platforms?: { name: string; icon: string; url: string; }[];
+  url?: string;
+}
+
+const projects: Project[] = [
   {
     type: "app",
     icon: "💫",
