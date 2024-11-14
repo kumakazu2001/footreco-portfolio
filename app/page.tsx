@@ -2,14 +2,15 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Smartphone, Globe, ExternalLink, Sparkles } from "lucide-react";
+import { Smartphone, Globe, ExternalLink, Sparkles ,House} from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
 import { SectionTitle } from "@/components/section-title";
 
 
+
 interface Project {
-  type: "app" | "web";  // 文字列リテラル型として定義
+  type: "app" | "web" | "hp";  // 文字列リテラル型として定義
   icon: string;
   title: string;
   description: string;
@@ -46,9 +47,16 @@ const projects: Project[] = [
   {
     type: "web",
     icon: "📚",
-    title: "選手名鑑メーカー",
+    title: "選手名鑑メーカー(現在鋭意製作中)",
     description: "オリジナルの選手名鑑を作成できるWebアプリ",
     url: "https://player-dictionary.web.app/",
+  },
+  {
+    type: "hp",
+    icon: "🏟️",
+    title: "サッカークラブHP",
+    description: "FC Prirosso様のHP",
+    url: "https://prirosso.com/",
   },
 ];
 
@@ -64,14 +72,14 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-muted-foreground text-lg">
-            アプリケーション開発のポートフォリオ
+            Team FootRecoのポートフォリオ
           </p>
         </header>
 
         <section className="space-y-8">
           <SectionTitle
             icon={<Smartphone className="h-6 w-6" />}
-            title="Mobile Applications"
+            title="スマホアプリ"
           />
           <div className="grid gap-6 md:grid-cols-2">
             {projects
@@ -87,11 +95,27 @@ export default function Home() {
 
           <SectionTitle
             icon={<Globe className="h-6 w-6" />}
-            title="Web Applications"
+            title="Webアプリ"
           />
           <div className="grid gap-6 md:grid-cols-2">
             {projects
               .filter((project) => project.type === "web")
+              .map((project) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  type="web"
+                />
+              ))}
+          </div>
+
+          <SectionTitle
+            icon={<House className="h-6 w-6" />}
+            title="ホームページ"
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {projects
+              .filter((project) => project.type === "hp")
               .map((project) => (
                 <ProjectCard
                   key={project.title}

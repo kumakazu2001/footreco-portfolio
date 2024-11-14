@@ -13,7 +13,7 @@ interface Platform {
 }
 
 interface Project {
-  type: "app" | "web";
+  type: "app" | "web"|"hp";
   icon: string;
   title: string;
   description: string;
