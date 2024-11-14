@@ -33,7 +33,7 @@ const projects: Project[] = [
       {
         name: "Android",
         icon: "📱",
-        url: "https://play.google.com/store/apps/details",
+        url: "https://play.google.com/store/apps/details?id=com.footreco.flutter_app&pcampaignid=web_share",
       },
     ],
   },
